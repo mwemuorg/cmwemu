@@ -1,17 +1,17 @@
 /*
- * mwemu-c demo: emulate a tiny x86-64 shellcode and read back a register.
+ * cmwemu demo: emulate a tiny x86-64 shellcode and read back a register.
  *
- * Build (from crates/mwemu-c, after `cargo build -p mwemu-c`):
+ * Build (from the repo root, after `cargo build`):
  *
  *   cc examples/demo.c -I include \
- *      -L ../../target/debug -lmwemu_c \
+ *      -L ../target/debug -lcmwemu \
  *      -o /tmp/mwemu_demo
- *   LD_LIBRARY_PATH=../../target/debug /tmp/mwemu_demo
+ *   LD_LIBRARY_PATH=../target/debug /tmp/mwemu_demo
  *
  * Or link the static lib (no LD_LIBRARY_PATH needed at runtime):
  *
  *   cc examples/demo.c -I include \
- *      ../../target/debug/libmwemu_c.a -lpthread -ldl -lm \
+ *      ../target/debug/libcmwemu.a -lpthread -ldl -lm \
  *      -o /tmp/mwemu_demo && /tmp/mwemu_demo
  */
 
@@ -30,7 +30,7 @@ int main(void) {
     };
 
     char *ver = mwemu_version();
-    printf("mwemu-c version: %s\n", ver ? ver : "(null)");
+    printf("cmwemu version: %s\n", ver ? ver : "(null)");
     mwemu_free_string(ver);
 
     struct MwemuEmu *emu = mwemu_init64();

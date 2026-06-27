@@ -1,4 +1,4 @@
-# mwemu-c
+# cmwemu
 
 C ABI bindings for [`libmwemu`](../libmwemu) — the x86/x64/arm64 emulator. This
 is the C counterpart of `pymwemu`: a thin `extern "C"` surface over the
@@ -7,13 +7,13 @@ is the C counterpart of `pymwemu`: a thin `extern "C"` surface over the
 ## Build
 
 ```sh
-cargo build -p mwemu-c          # or --release
+cargo build          # or --release
 ```
 
 This produces, under `target/<profile>/`:
 
-- `libmwemu_c.so` / `.dylib` / `.dll` — dynamic library (`cdylib`)
-- `libmwemu_c.a` — static library (`staticlib`)
+- `libcmwemu.so` / `.dylib` / `.dll` — dynamic library (`cdylib`)
+- `libcmwemu.a` — static library (`staticlib`)
 
 and regenerates the C header at [`include/mwemu.h`](include/mwemu.h) via
 `cbindgen` (the header is committed, so C consumers don't need a Rust build).

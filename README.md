@@ -1,4 +1,5 @@
 # cmwemu
+[![Rust CI](https://github.com/mwemuorg/cmwemu/actions/workflows/ci.yaml/badge.svg)](https://github.com/mwemuorg/cmwemu/actions/workflows/ci.yaml)
 
 C ABI bindings for [`libmwemu`](../libmwemu) — the x86/x64/arm64 emulator. This
 is the C counterpart of `pymwemu`: a thin `extern "C"` surface over the
